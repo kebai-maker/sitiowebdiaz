@@ -1,0 +1,47 @@
+====================================================================
+GUÍA PRÁCTICA · SEMANA 4: LA CANASTA DE SANTA ROSA
+TRIBUNAL ÉTICO Y PREGUNTAS DE ANÁLISIS
+====================================================================
+Curso: Programación Web (UAIN1349P)
+Integrante 1: [Completar Apellidos y Nombres]
+Integrante 2 (Pareja): [Completar Apellidos y Nombres]
+Sección: [Completar Sección]
+====================================================================
+
+1. Clasifica las tres propuestas del asesor como transparentes o engañosas, explica por qué y propone una alternativa honesta para cada una.
+
+a) Contador falso de «¡Solo quedan 2!»:
+   - Clasificación: Engañosa (patrón oscuro de falsa escasez / urgencia artificial).
+   - Por qué: Inventa un límite de stock inexistente mediante código para presionar psicológicamente al cliente a comprar de forma impulsiva sin tiempo para reflexionar.
+   - Alternativa honesta: Mostrar el inventario real conectado a la base de datos o informar horarios reales de horneado (ej. «Próxima horneada de pan de yema a las 4:00 p.m.»).
+
+b) Sumar una gaseosa a cada pedido sin preguntar:
+   - Clasificación: Engañosa (patrón oscuro conocido como «Sneak into Basket» o producto colado en la canasta).
+   - Por qué: Altera el estado del pedido sin consentimiento explícito del usuario, esperando que por distracción pague por un artículo que nunca solicitó.
+   - Alternativa honesta: Mostrar una recomendación visible y opcional antes de finalizar la compra (ej. un botón «¿Deseas añadir una gaseosa por S/ 3.00?») que solo modifique el pedido si el cliente hace clic.
+
+c) Subir el precio al llegar al pago:
+   - Clasificación: Engañosa (patrón oscuro de costos ocultos o «Hidden Costs» / «Drip Pricing»).
+   - Por qué: Oculta el costo real durante la selección para enganchar al comprador con un precio bajo y aprovecha el esfuerzo ya invertido al final del proceso para cobrar más.
+   - Alternativa honesta: Mostrar desde el catálogo el precio final con impuestos incluidos y detallar de forma clara cualquier costo adicional (como envío o empaque especial) antes de iniciar el pago.
+
+--------------------------------------------------------------------
+
+2. ¿En qué se diferencia tu «sugerencia honesta» del reto de la gaseosa que el asesor quería sumar sin preguntar?
+
+La diferencia fundamental radica en el consentimiento explícito y el control del usuario sobre el estado de su pedido:
+- En nuestra «sugerencia honesta», el sistema detecta contextualmente que el cliente lleva pan y presenta un mensaje claro en la interfaz ofreciendo mantequilla artesanal por S/ 2.50, pero el arreglo `pedido` permanece intacto hasta que el usuario decide hacer clic voluntariamente en «Añadir mantequilla».
+- En cambio, la propuesta del asesor modifica el arreglo del pedido de forma silenciosa y automática sin autorización, violando la autonomía del usuario y ocultando cambios en el total.
+
+--------------------------------------------------------------------
+
+3. Explica con tus palabras por qué usaste textContent y no innerHTML para escribir los productos del pedido.
+
+Usamos `textContent` porque inserta la información estrictamente como texto plano, escapando automáticamente cualquier carácter especial (`<`, `>`, `&`). Si utilizáramos `innerHTML` con datos provenientes de atributos o entradas del usuario, el navegador interpretaría cualquier etiqueta HTML o código JavaScript incrustado, abriendo una vulnerabilidad grave de seguridad llamada Cross-Site Scripting (XSS). Además, crear los nodos con `document.createElement` y asignar texto con `textContent` es más seguro, predecible y evita destruir y reconstruir innecesariamente los eventos o estados internos de otros elementos.
+
+--------------------------------------------------------------------
+
+4. Describe un patrón oscuro que hayas visto en una tienda en línea real y cómo lo rediseñarías.
+
+- Patrón oscuro observado: «Confirmshaming» (manipulación por culpa) y dificultad para cancelar suscripciones («Roach Motel») en plataformas de comercio electrónico y streaming. Por ejemplo, al ofrecer un descuento o membresía aparece un botón grande que dice «Sí, quiero ahorrar dinero» y un enlace pequeño y gris que dice «No gracias, prefiero pagar el precio completo y perder beneficios».
+- Rediseño ético: Presentar ambas opciones con igual jerarquía visual, contraste accesible y lenguaje neutral y respetuoso: un botón claro para aceptar («Suscribirme con 10 % de descuento») y otro botón igualmente visible para rechazar («Continuar sin suscripción»), respetando la decisión del usuario sin juzgarla ni esconderla.

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panadería Santa Rosa · La canasta de Santa Rosa</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="js/pedido.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Panadería Santa Rosa</h1>
+    <p>Horneado artesanal cada mañana · Arma tu canasta en línea</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Nuestros productos</h2>
+      <div class="catalogo">
+        <article class="producto" data-nombre="Pan de yema" data-precio="0.50">
+          <img src="img/pan-yema.jpg" alt="Canasta de panes de yema dorados recién horneados">
+          <h3>Pan de yema</h3>
+          <p><span class="precio">S/ 0.50</span> la unidad</p>
+          <button type="button" class="btn-anadir">Añadir</button>
+        </article>
+
+        <article class="producto" data-nombre="Chancay" data-precio="1.20">
+          <img src="img/chancay.jpg" alt="Bizcochos chancay esponjosos con ajonjolí">
+          <h3>Chancay</h3>
+          <p><span class="precio">S/ 1.20</span> la unidad</p>
+          <button type="button" class="btn-anadir">Añadir</button>
+        </article>
+
+        <article class="producto" data-nombre="Empanada de carne" data-precio="4.50">
+          <img src="img/empanada.jpg" alt="Empanada de carne horneada con masa dorada">
+          <h3>Empanada de carne</h3>
+          <p><span class="precio">S/ 4.50</span> la unidad</p>
+          <button type="button" class="btn-anadir">Añadir</button>
+        </article>
+
+        <article class="producto" data-nombre="Torta de chocolate" data-precio="45.00">
+          <img src="img/torta-chocolate.jpg" alt="Torta de chocolate húmeda con cobertura de fudge">
+          <h3>Torta de chocolate</h3>
+          <p><span class="precio">S/ 45.00</span> entera</p>
+          <button type="button" class="btn-anadir">Añadir</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="mi-pedido" aria-labelledby="titulo-pedido">
+      <div class="pedido-encabezado">
+        <h2 id="titulo-pedido" tabindex="-1">Mi pedido</h2>
+        <button type="button" id="btn-vaciar" class="btn-secundario" hidden>Vaciar pedido</button>
+      </div>
+
+      <p id="pedido-vacio">Tu pedido está vacío. Añade productos del catálogo.</p>
+      <ul id="lista-pedido"></ul>
+
+      <!-- Sugerencia honesta (Reto de autonomía) -->
+      <div id="sugerencia-mantequilla" class="sugerencia-box" hidden>
+        <p>¿Añadir mantequilla artesanal por S/ 2.50?</p>
+        <button type="button" id="btn-agregar-mantequilla" class="btn-anadir-extra">Añadir mantequilla</button>
+      </div>
+
+      <p class="total">Total: <strong id="total">S/ 0.00</strong></p>
+      <p id="aviso" class="solo-lector" role="status"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Panadería Santa Rosa · Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
